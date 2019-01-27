@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import {Prompt, RouteComponentProps } from 'react-router-dom';
 import { IProduct, products } from './ProductsData';
 
 type Props = RouteComponentProps<{id: string}>;
@@ -29,6 +29,7 @@ class ProductPage extends React.Component<Props, IState> {
     const product = this.state.product;
     return (
       <div className="page-container">
+        <Prompt when={!this.state.added} message={this.navAwayMessage} />
         {product ? (
           <React.Fragment>
             <h1>{product.name}</h1>
@@ -51,6 +52,10 @@ class ProductPage extends React.Component<Props, IState> {
       </div>
     );
   }
+
+  private navAwayMessage = () => {
+    return 'Are you sure to leave this page without product added?'
+  };
 
   private handleAddClick = () => {
     this.setState({ added: true });
