@@ -5,7 +5,8 @@
     "object-literal-sort-keys": false,
     "no-debugger": false,
     "no-console": false,
-    "member-ordering": false
+    "member-ordering": false,
+    "jsx-no-lambda": false
   },
   "linterOptions": {
     "exclude": [
