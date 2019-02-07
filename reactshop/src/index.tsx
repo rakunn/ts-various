@@ -5,6 +5,9 @@ import * as serviceWorker from './serviceWorker';
 
 import Routes from './Routes';
 
+console.log(process.env);
+console.log(process);
+
 ReactDOM.render(
   <Routes />,
   document.getElementById('root')
