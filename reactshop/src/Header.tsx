@@ -36,8 +36,9 @@ const Header: React.FunctionComponent<RouteComponentProps> = (props) => {
       <img src={logo} className="header-logo" alt="logo" />
       <h1 className="header-title">React Shop</h1>
       <nav>
-        <NavLink to="/products" className="headerlink" activeClassName="header-link-active">
+        <NavLink to="/products" className="header-link" activeClassName="header-link-active">
         Products</NavLink>
+        <NavLink to="/contactus" className="header-link" activeClassName="header-link-active">Contact us</NavLink>
         <NavLink to="/admin" className="header-link" activeClassName="header-link-active">Admin</NavLink>
       </nav>
     </header>

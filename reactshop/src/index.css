@@ -108,11 +108,11 @@ header {
 
 .product-reviews {
   list-style: none;
-  padding: 0px;
+  padding: 0;
 }
 .product-reviews .product-reviews-item {
   display: block;
-  padding: 8px 0px;
+  padding: 8px 0;
 }
 
 .tabs {
@@ -122,7 +122,7 @@ header {
 .tabs li {
   display: inline-block;
   padding: 5px;
-  margin: 0px 5px 0px 5px;
+  margin: 0 5px 0 5px;
   cursor: pointer;
 }
 .tabs li:focus {
@@ -159,4 +159,29 @@ header {
   width: 100px;
   height: 100px;
   animation: loader-circle-spin 0.7s linear infinite;
+}
+
+.form {
+  width: 300px;
+  margin: 0 auto 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  align-self: flex-start;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.form-group input, select, textarea {
+  font-family: Arial, serif;
+  font-size: 16px;
+  padding: 5px;
+  border: lightgray solid 1px;
+  border-radius: 5px;
 }
