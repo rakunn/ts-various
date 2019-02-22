@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { IValues, ISubmitResult } from "./Form";
 import ContactUs from './ContactUs';
 
 interface IState {
@@ -20,6 +21,19 @@ class ContactUsPage extends React.Component<{}, IState> {
     };
   }
 
+  private handleSubmit = async (values: IValues): Promise<ISubmitResult> => {
+
+    const wait = (ms: number): Promise<void> => {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    };
+
+    await wait(1000); // simulate asynchronous web API call
+
+    return {
+      success: true
+    };
+  };
+
   public render() {
     return (
       <div className="page-container">
@@ -28,7 +42,7 @@ class ContactUsPage extends React.Component<{}, IState> {
           If you enter your details we'll get back to you as soon as
           we can.
         </p>
-        <ContactUs />
+        <ContactUs onSubmit={this.handleSubmit}/>
       </div>
     );
   }

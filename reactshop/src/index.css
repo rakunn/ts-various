@@ -185,3 +185,25 @@ header {
   border: lightgray solid 1px;
   border-radius: 5px;
 }
+
+
+.form-error {
+  font-size: 13px;
+  color: red;
+  margin: 3px auto 0px 0px;
+}
+
+.form-group button {
+  font-size: 16px;
+  padding: 8px 5px;
+  width: 80px;
+  border: black solid 1px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+.form-group button:disabled {
+  border: gray solid 1px;
+  background-color: gray;
+  cursor: not-allowed;
+}
