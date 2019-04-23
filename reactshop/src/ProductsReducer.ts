@@ -3,6 +3,7 @@ import { Reducer } from 'redux';
 import { IProductsState, ProductActionTypes, ProductsActions } from './ProductTypes';
 
 const initialProductState: IProductsState = {
+  currentProduct: null,
   products: [],
   isLoading: false,
 };
@@ -12,6 +13,13 @@ export const productsReducer: Reducer<IProductsState, ProductsActions> = (
   action: ProductsActions,
 ) => {
   switch (action.type) {
+    case ProductActionTypes.GETSINGLE: {
+      return {
+        ...state,
+        isLoading: false,
+        currentProduct: action.product,
+      }
+    }
     case ProductActionTypes.GETALL: {
       return {
         ...state,
