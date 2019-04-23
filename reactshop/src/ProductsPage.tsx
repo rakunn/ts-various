@@ -2,9 +2,10 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { IApplicationState } from './Store';
 import { getProducts } from './ProductsActions';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { IProduct } from './ProductsData';
 import 'url-search-params-polyfill';
+import ProductsList from './ProductsList';
 
 interface IProps extends RouteComponentProps {
   getProducts: typeof getProducts;
@@ -20,6 +21,7 @@ class ProductsPage extends React.Component<IProps> {
 
   public render() {
     const searchParams = new URLSearchParams(this.props.location.search);
+    const search = searchParams.get('search') || '';
 
     return (
       <div className="page-container">
@@ -27,29 +29,26 @@ class ProductsPage extends React.Component<IProps> {
           Welcome to React Shop where you can get all your tools
           for ReactJS!
         </p>
-        <ul className="product-list">
-          {this.state.products.map(product => {
-            if (
-              !this.state.search ||
-              (this.state.search &&
-                product.name
-                  .toLowerCase()
-                  .indexOf(this.state.search.toLowerCase()) > -1)
-            ) {
-              return (
-                <li key={product.id} className="product-list-item">
-                  <Link to={`/products/${product.id}`}>{product.name}
-                  </Link>
-                </li>
-              );
-            } else {
-              return null;
-            }
-          })}
-        </ul>
+        <ProductsList products={this.props.products} loading={this.props.loading} search={search}/>
       </div>
     );
   }
 }
 
-export default ProductsPage;
+const mapStateToProps = (store: IApplicationState) => {
+  return {
+    loading: store.products.isLoading,
+    products: store.products.products,
+  }
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    getProducts: () => dispatch(getProducts()),
+  }
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProductsPage);
