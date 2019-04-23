@@ -1,15 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Store } from 'redux';
+import { Provider } from 'react-redux';
+
+import configureStore, { IApplicationState } from './Store';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-
 import Routes from './Routes';
 
-console.log(process.env);
-console.log(process);
+interface IProps {
+  store: Store<IApplicationState>
+}
+
+const Root: React.FunctionComponent<IProps> = (props) => {
+  return (
+    <Provider store={props.store}>
+      <Routes />
+    </Provider>
+  )
+};
+
+const store = configureStore();
 
 ReactDOM.render(
-  <Routes />,
+  <Root store={store} />,
   document.getElementById('root')
 );
 
