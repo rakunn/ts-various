@@ -1,3 +1,5 @@
+import Product from "./Product";
+
 export interface IReview {
   comment: string;
   reviewer: string;
@@ -62,6 +64,11 @@ export const products: IProduct[] = [
 
 const wait = (ms: number): Promise<void> => {
   return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+export const getProducts = async (): Promise<IProduct[]> => {
+  await wait(1000);
+  return products;
 };
 
 export const getProduct = async (id: number): Promise<IProduct | null> => {
