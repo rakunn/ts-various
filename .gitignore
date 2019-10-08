@@ -1,9 +1,7 @@
 .idea
 
 client/node_modules
-
 client-man/node_modules
-
 my-components/node_modules
-
 reactshop/node_modules
+crud-api/node_modules

@@ -103,7 +103,9 @@ const Product: React.FunctionComponent<IProps> = props => {
         {likes > 0 && (
           <div>{`I like this x ${likes}, last at ${lastLike}`}</div>
         )}
-        <button onClick={handleLikeClick}>{likes > 0 ? 'Like again' : 'Like'}</button>
+        <button onClick={handleLikeClick}>
+          {likes > 0 ? 'Like again' : 'Like'}
+        </button>
       </div>
     </React.Fragment>
   );
