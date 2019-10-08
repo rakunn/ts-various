@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 
 import { IProductsState } from './ProductTypes';
 import { productsReducer } from './ProductsReducer';
-import { IBasketState } from './BasketTypes';
 import { basketReducer } from './BasketReducer';
+import { IBasketState } from './BasketTypes';
 
 export interface IApplicationState {
   basket: IBasketState,

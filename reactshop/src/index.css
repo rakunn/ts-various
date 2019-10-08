@@ -178,7 +178,9 @@ header {
   margin-bottom: 3px;
 }
 
-.form-group input, select, textarea {
+.form-group input,
+select,
+textarea {
   font-family: Arial, serif;
   font-size: 16px;
   padding: 5px;
@@ -205,4 +207,11 @@ header {
   border: gray solid 1px;
   background-color: gray;
   cursor: not-allowed;
+}
+
+.basket-summary {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: white solid 2px;
 }
